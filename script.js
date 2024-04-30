@@ -1,26 +1,23 @@
-//your code here!
-document.addEventListener('DOMContentLoaded', function() {
-    const list = document.getElementById('list');
+// Get the list element
+var list = document.getElementById('list');
 
-    function addMoreItems() {
-        for (let i = 0; i < 2; i++) {
-            const newItem = document.createElement('li');
-            newItem.textContent = 'List Item';
-            list.appendChild(newItem);
-        }
-    }
-
-    for (let i = 0; i < 10; i++) {
-        const newItem = document.createElement('li');
-        newItem.textContent = 'List Item';
+function addItems(numItems) {
+    for (var i = 0; i < numItems; i++) {
+        var newItem = document.createElement('li');
+        newItem.innerText = 'Item ' + (list.childElementCount + 1);
         list.appendChild(newItem);
     }
+}
 
-    window.addEventListener('scroll', function() {
+addItems(10);
 
-		if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-            addMoreItems();
-        }
-    });
-});
+function isScrolledToBottom() {
+    return (window.innerHeight + window.scrollY) >= document.body.offsetHeight;
+}
 
+window.onscroll = function() {
+    if (isScrolledToBottom()) {
+
+		addItems(2);
+    }
+};
