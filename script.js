@@ -1,5 +1,5 @@
 // Get the list element
-var list = document.getElementById('list');
+var list = document.getElementById('infi-list');
 
 function addItems(numItems) {
     for (var i = 0; i < numItems; i++) {
